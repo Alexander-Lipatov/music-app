@@ -8,10 +8,11 @@ import Navigation from "@/components/Sidebar/Navigation";
 import MyPlaylists from "@/components/Sidebar/MyPlaylists";
 import RightSidebar from "@/components/RightSidebar";
 import Header from "@/components/Header";
-import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
+import HeaderNavigation from "@/components/Header/HeaderNavigation";
+import HeaderSearch from "@/components/Header/HeaderSearch";
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -37,36 +38,10 @@ export default function RootLayout({
         )}
       >
         <div className=" flex h-full ">
-          <div className="sidebar w-40 h-full bg-black shadow">
-            <div className="profile flex justify-center items-center flex-col gap-3 my-5">
-              <div className="avatar ">
-                <Image
-                  src={"https://i.pravatar.cc/300"}
-                  className="rounded-full"
-                  width="75"
-                  height="75"
-                  alt=""
-                />
-              </div>
-              <div className="display-name flex flex-col items-center">
-                <span>Alexander</span>
-                <span>Lipatov</span>
-              </div>
-            </div>
-            <Separator className="bg-[#313131]"/>
-
-            <div className="main-nav"></div>
-          </div>
- 
+          <LeftSidebar/>
           <div className="flex-1">
-            <div className="header h-16 bg-[#242426] flex justify-between ">
-              <div className=""></div>
-              <div className="search flex items-center gap-3">
-                <input type="text" className="bg-transparent border border-solid border-[#343336] rounded-xl px-5 py-1" />
-                <Button className=" rounded-full w-9 h-9 p-0 bg-[#19CBA6] hover:bg-black"><Search/></Button>
-              </div>
-            </div>
-            <main>home</main>
+            <Header/>
+            <main>{children}</main>
           </div>
         </div>
       </body>
